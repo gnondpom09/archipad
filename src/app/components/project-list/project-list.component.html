@@ -1,0 +1,16 @@
+<div class="project-list">
+  <mat-card *ngFor="let project of projects$ | async" class="project-card">
+    <mat-card-title>Projet {{ project.id }} </mat-card-title>
+    <mat-card-subtitle>
+      Propiétaire : {{ project.owner.email }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>Société : {{ project.owner.company }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="viewProject(project.id)" color="primary" mat-flat-button>
+        Voir
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

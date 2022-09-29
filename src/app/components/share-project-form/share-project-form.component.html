@@ -1,0 +1,64 @@
+<div class="share-project">
+  <form [formGroup]="shareForm" (ngSubmit)="addNewParticipant()">
+    <h1 mat-dialog-title>Partager votre projet</h1>
+    <h4 mat-dialog-subtitle>Privilèges d'accés pour ce projet :</h4>
+
+    <mat-dialog-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Participant</mat-label>
+        <mat-select
+          (selectionChange)="updateForm($event.value)"
+          formControlName="participant"
+        >
+          <mat-option *ngFor="let user of users" [value]="user">
+            {{ user.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="legend">
+        Peut poser et lever des réserves, éditer des remarques et générer et
+        partager des rapports. Ne peux pas modifier les données du projet telles
+        que les contacts ou les plans.
+      </span>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option *ngFor="let item of roles" [value]="item">
+            {{ item }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-grid-list cols="2" rowHeight="2:1" gutterSize="8px">
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input formControlName="name" matInput />
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Société</mat-label>
+            <input formControlName="company" matInput />
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Adresse</mat-label>
+        <textarea formControlName="address" matInput></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput />
+      </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+      <button mat-flat-button (click)="cancel()">ANNULER</button>
+      <button mat-flat-button color="primary" type="submit">INVITER</button>
+    </mat-dialog-actions>
+  </form>
+</div>

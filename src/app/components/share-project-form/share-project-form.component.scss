@@ -1,0 +1,12 @@
+:host {
+  mat-dialog-content {
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  mat-dialog-actions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}

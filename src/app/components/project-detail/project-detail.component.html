@@ -1,0 +1,26 @@
+<div class="project-detail">
+  <div *ngIf="project">
+    <div class="navigation">
+      <button (click)="back()" mat-flat-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <h2>Projet {{ project.id }}</h2>
+    </div>
+
+    <app-participants-table
+      title="Propriétaire du projet"
+      [projectId]="project.id"
+      [participants]="owners"
+      [isOwner]="true"
+    ></app-participants-table>
+
+    <app-participants-table
+      title="Projet partagé avec"
+      [projectId]="project.id"
+      [participants]="participants"
+      [isOwner]="false"
+      (eventAddItem)="addNewParticipant($event)"
+    ></app-participants-table>
+  </div>
+</div>

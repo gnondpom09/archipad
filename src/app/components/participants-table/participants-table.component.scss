@@ -1,0 +1,27 @@
+:host {
+  mat-card {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0;
+    margin-bottom: 24px;
+
+    .mat-card-header {
+      display: flex;
+      justify-content: space-between;
+
+      .fab {
+        position: relative;
+        top: 12px;
+        right: 12px;
+      }
+    }
+
+    mat-card-subtitle {
+      text-transform: uppercase;
+      padding: 24px 8px;
+    }
+    table {
+      width: 100%;
+      box-shadow: none;
+    }
+  }
+}
